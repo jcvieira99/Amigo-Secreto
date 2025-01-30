@@ -26,3 +26,16 @@ function adicionarAmigosNaLista(amigos){
         lista.innerHTML += `<li>${amigos[i]}</li>`;
     }
 }
+
+function sortearAmigo() {
+    if (amigos.length === 0) { //Se a lista amigos estiver vazia , exibe um alerta informando que a lista está vazia e que é necessário adicionar amigos antes de realizar o sorteio. Em seguida, a função é encerrada com return.
+
+        alert("A lista de amigos está vazia. Adicione amigos antes de sortear.");
+        return;
+    }
+    
+    const indiceSorteado = Math.floor(Math.random() * amigos.length);//Utiliza Math.random() para gerar um número aleatório entre 0 e 1, multiplica pelo comprimento da lista de amigos (amigos.length), e usa Math.floor() para arredondar para baixo, obtendo assim um índice válido da lista.
+    const amigoSorteado = amigos[indiceSorteado];//Com o índice sorteado, seleciona um amigo da lista amigos e armazena na variável amigoSorteado.
+    
+    document.getElementById("resultado").innerHTML = `Amigo sorteado: ${amigoSorteado}`;//Atualiza o conteúdo do elemento HTML com o ID resultado para mostrar o nome do amigo sorteado.
+}
